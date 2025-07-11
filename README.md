@@ -55,7 +55,7 @@ sudo apt update && sudo apt upgrade -y
 2. Execute o script de instalação fornecido:
    ```bash
    chmod +x scripts/install-safesign.sh
-   bash /scripts/install-safesign.sh
+   bash scripts/install-safesign.sh
    ```
    O script instalará as dependências, extrairá o SafeSign e instalará os pacotes necessários.
 
