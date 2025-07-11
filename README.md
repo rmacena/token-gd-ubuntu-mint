@@ -64,17 +64,29 @@ O Firefox em formato Snap (padrão no Ubuntu) não é compatível com tokens. Su
 1. Remova o Firefox Snap:
    ```bash
    sudo snap remove firefox
+   sudo apt remove firefox
    ```
 2. Adicione o repositório PPA do Mozilla:
    ```bash
    sudo add-apt-repository ppa:mozillateam/ppa
-   sudo apt update
    ```
-3. Instale o Firefox .deb:
+
+3. Defina a prioridade do repositório PPA, caso contrário o pacote SNAP sempre terá prioridade. Crie o arquivo abaixo:
    ```bash
+   sudo vi /etc/apt/preferences.d/mozilla
+   ```
+   O comando cria e abre o arquivo mozillateamppa no diretório /etc/apt/preferences.d. Adicione as linhas abaixo:
+   ```bash
+   Package: firefox*
+   Pin: origin packages.mozilla.org
+   Pin-Priority: 1000
+   ```
+5. Instale o Firefox .deb:
+   ```bash
+   sudo apt update
    sudo apt install -y firefox
    ```
-4. Configure o Firefox para reconhecer o token:
+6. Configure o Firefox para reconhecer o token:
    - Conecte o token G&D ao computador.
    - Abra o app Tokenadmin recem instalado, vá no menu **Integration > Install Safesign in Firefox**.
    - Clique em **firefox**, e em seguinda cliquem no botão **Install**.
