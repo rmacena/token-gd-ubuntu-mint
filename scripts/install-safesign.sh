@@ -1,24 +1,20 @@
 #!/bin/bash
 # Script para instalar o token G&D no Ubuntu 24.04 LTS e Linux Mint 22.x
 
-# Atualiza o sistema
-echo "Atualizando o sistema..."
-sudo apt update && apt upgrade -y
-
 # Instala dependências
 echo "Instalando dependências..."
 sudo apt install -y libpcsclite1 libccid pcscd libjbig0 fontconfig-config libfontconfig1
 
 # Verifica se o arquivo SafeSign existe
-SAFESIGN_DEB="/home/$USER/Stage/LINUX_GDTOKEN/drivers/SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb"
+SAFESIGN_DEB="/home/$USER/Stage/token-gd-ubuntu-mint/drivers/SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb"
 if [ ! -f "$SAFESIGN_DEB" ]; then
-    echo "Erro: Arquivo $SAFESIGN_DEB não encontrado em ~/Stage/LINUX_GDTOKEN/drivers"
+    echo "Erro: Arquivo $SAFESIGN_DEB não encontrado em ~/Stage/token-gd-ubuntu-mint/drivers"
     exit 1
 fi
 
 # Instala o pacote .deb
 echo "Instalando o SafeSign..."
-SAFESIGN_PKG="/home/$USER/Stage/LINUX_GDTOKEN/drivers/SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb"
+SAFESIGN_PKG="/home/$USER/Stage/token-gd-ubuntu-mint/drivers/SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb"
 sudo dpkg -i "$SAFESIGN_PKG"
 sudo apt install -f -y
 
