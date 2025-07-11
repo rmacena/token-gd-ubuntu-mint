@@ -58,7 +58,7 @@ sudo apt update && sudo apt upgrade -y
    ```
    O script instalará as dependências, extrairá o SafeSign e instalará os pacotes necessários.
 
-### 4. Configure o Firefox
+### 4. Configure o Firefox (Pule essa etapa se você usa Linux Mint 22.x, pois o Mint nao usa o SNAP como padrão)
 O Firefox em formato Snap (padrão no Ubuntu 24.04) não é compatível com tokens. Substitua-o pela versão .deb executando o script de setup do Firefox:
 1. Execute o script setup-firefox.sh:
    ```bash
