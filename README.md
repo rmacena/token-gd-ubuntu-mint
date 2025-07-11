@@ -51,8 +51,7 @@ sudo apt update && sudo apt upgrade -y
    ```
 
 ### 3. Execute o Script de Instalação
-1. Certifique-se de que o arquivo `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` está no diretório `~/Stage/token-gd-ubuntu-mint/drivers`.
-2. Execute o script de instalação fornecido:
+1. Execute o script de instalação fornecido:
    ```bash
    chmod +x scripts/install-safesign.sh
    bash scripts/install-safesign.sh
@@ -60,37 +59,18 @@ sudo apt update && sudo apt upgrade -y
    O script instalará as dependências, extrairá o SafeSign e instalará os pacotes necessários.
 
 ### 4. Configure o Firefox
-O Firefox em formato Snap (padrão no Ubuntu) não é compatível com tokens. Substitua-o pela versão .deb:
-1. Remova o Firefox Snap:
+O Firefox em formato Snap (padrão no Ubuntu) não é compatível com tokens. Substitua-o pela versão .deb executando o script de setup do Firefox:
+1. Execute o script setup-firefox.sh:
    ```bash
-   sudo snap remove firefox
-   sudo apt remove firefox
+   chmod +x scripts/setup-firefox.sh
+   bash scripts/setup-firefox.sh
    ```
-2. Adicione o repositório PPA do Mozilla:
-   ```bash
-   sudo add-apt-repository ppa:mozillateam/ppa
-   ```
+Se tudo correu bem, você conseguiu remover o pacote SNAP do Firefox, adicionar o repositório oficial do Mozzila e concluiu a instalação do Firefox.
 
-3. Defina a prioridade do repositório PPA, caso contrário o pacote SNAP sempre terá prioridade. Crie o arquivo abaixo:
-   ```bash
-   sudo vi /etc/apt/preferences.d/mozilla
-   ```
-   O comando cria e abre o arquivo mozillateamppa no diretório /etc/apt/preferences.d. Adicione as linhas abaixo:
-   ```bash
-   Package: firefox*
-   Pin: origin packages.mozilla.org
-   Pin-Priority: 1000
-   ```
-5. Instale o Firefox .deb:
-   ```bash
-   sudo apt update
-   sudo apt install -y firefox
-   ```
-6. Configure o Firefox para reconhecer o token:
+2. Configure o Firefox para reconhecer o token:
    - Conecte o token G&D ao computador.
    - Abra o app Tokenadmin recem instalado, vá no menu **Integration > Install Safesign in Firefox**.
    - Clique em **firefox**, e em seguinda cliquem no botão **Install**.
-   - Insira a senha do token quando solicitado em sites como [https://contas.acesso.gov.br](https://contas.acesso.gov.br).
 
 ### 5. Verifique o Funcionamento
 1. Conecte o token G&D ao computador.
