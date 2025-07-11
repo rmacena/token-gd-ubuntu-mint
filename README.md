@@ -1,10 +1,10 @@
 # Instalação do Token G&D (StarSign) no Ubuntu 24.04 LTS e Linux Mint 22.x
 
 ## Descrição
-Este projeto documenta o processo de instalação e configuração do token criptográfico G&D (StarSign) em sistemas Ubuntu 24.04 LTS e Linux Mint 22.x, utilizando o SafeSign Identity Client versão 4.2.1.0. O guia é voltado para usuários que precisam configurar certificados digitais A3 para acessar serviços como PJe, eSAJ ou gov.br, com suporte ao Firefox. O procedimento utiliza o arquivo local `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` e inclui um script automatizado para simplificar a instalação.
+Este projeto documenta o processo de instalação e configuração do token criptográfico G&D (StarSign) em sistemas Ubuntu 24.04 LTS e Linux Mint 22.x, utilizando o SafeSign Identity Client versão 4.2.1.0. O guia é voltado para usuários que precisam configurar certificados digitais A3 para acessar serviços como PJe, eSAJ ou gov.br, com suporte ao Firefox. O procedimento utiliza o arquivo local `SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb` e inclui um script automatizado para simplificar a instalação.
 
 ## Funcionalidades
-- Instalação do SafeSign Identity Client 4.2.1.0 a partir de um arquivo `.zip` local.
+- Instalação do SafeSign Identity Client 4.2.1.0 a partir de um arquivo `.deb` local.
 - Configuração de dependências para Ubuntu 24.04 LTS e Linux Mint 22.x.
 - Integração com Firefox (versão .deb, não Snap) para uso do certificado digital.
 - Script automatizado para instalação e configuração.
@@ -19,7 +19,7 @@ Este projeto documenta o processo de instalação e configuração do token crip
 
 ## Pré-requisitos
 - Sistema operacional Ubuntu 24.04 LTS ou Linux Mint 22.x (64 bits).
-- Arquivo `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` disponível localmente (ex.: em `~/Stage/LINUX_GDTOKEN/drivers`).
+- Arquivo `SafeSign_Linux_4.2.1-AET_000_ub2404_x86_64.deb` disponível localmente (ex.: em `~/Stage/token-gd-ubuntu-mint/drivers`).
 - Token G&D (StarSign) desconectado durante a instalação.
 - Conexão com a internet para instalar dependências via repositório.
 - Permissões administrativas (sudo).
@@ -46,12 +46,12 @@ sudo apt update && sudo apt upgrade -y
    ```bash
    mkdir -p ~/Stage
    cd ~/Stage
-   git clone https://github.com/rmacena/LINUX_GDTOKEN.git
-   cd LINUX_GDTOKEN
+   git clone https://github.com/rmacena/token-gd-ubuntu-mint.git
+   cd token-gd-ubuntu-mint
    ```
 
 ### 3. Execute o Script de Instalação
-1. Certifique-se de que o arquivo `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` está no diretório `~/Stage/LINUX_GDTOKEN/drivers`.
+1. Certifique-se de que o arquivo `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` está no diretório `~/Stage/token-gd-ubuntu-mint/drivers`.
 2. Execute o script de instalação fornecido:
    ```bash
    chmod +x scripts/install-safesign.sh
@@ -93,10 +93,7 @@ O Firefox em formato Snap (padrão no Ubuntu) não é compatível com tokens. Su
   ```
 - **Firefox não reconhece o token**: Confirme que a versão .deb do Firefox está instalada e que o arquivo `/usr/lib/libaetpkss.so.3` foi carregado corretamente.
 - **Dependências ausentes**: Execute `sudo apt install -f` após cada instalação de pacote .deb.
-- **Erro ao extrair o .zip**: Verifique se o arquivo `SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip` não está corrompido:
-  ```bash
-  unzip -t ~/Stage/LINUX_GDTOKEN/drivers/SafeSign_IC_Standard_Linux_ub2404_4.2.1.0-AET.000.zip
-  ```
+
 
 ## Como Contribuir
 1. Faça um fork deste repositório.
