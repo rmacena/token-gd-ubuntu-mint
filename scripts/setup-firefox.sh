@@ -34,4 +34,4 @@ echo "Atualizando database dos repositórios do Linux e instalando o Firefox"
 sudo apt update && sudo apt install firefox
 sleep 1
 
-echo "Setup de remoção pacote SAP Firefox e instalação pacote .deb Firefox concluído com sucesso!"
+echo "Setup de remoção do pacote SNAP Firefox e instalação do pacote .deb Firefox concluído com sucesso!"
